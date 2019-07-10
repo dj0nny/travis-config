@@ -3,10 +3,20 @@
   "version": "1.0.0",
   "description": "Generate your .travis.yml via CLI",
   "main": "index.js",
+  "scripts": {
+    "start": "node src/",
+    "lint": "eslint src/"
+  },
   "repository": "https://github.com/dj0nny/travis-config.git",
   "author": "Dj0nny",
   "license": "MIT",
   "dependencies": {
+    "inquirer": "^6.4.1",
     "js-yaml": "^3.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.0"
   }
 }
