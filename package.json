@@ -1,0 +1,12 @@
+{
+  "name": "travis-config",
+  "version": "1.0.0",
+  "description": "Generate your .travis.yml via CLI",
+  "main": "index.js",
+  "repository": "https://github.com/dj0nny/travis-config.git",
+  "author": "Dj0nny",
+  "license": "MIT",
+  "dependencies": {
+    "js-yaml": "^3.13.1"
+  }
+}
