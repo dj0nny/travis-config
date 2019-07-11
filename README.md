@@ -1,5 +1,9 @@
 # travis-config
 
+[![npm version](https://badge.fury.io/js/travis-config.svg)](https://badge.fury.io/js/travis-config)
+![npm](https://img.shields.io/npm/dm/travis-config.svg)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
+
 > Generate your .travis.yml via CLI 
 
 ## Getting Started
