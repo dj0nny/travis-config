@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 const yaml = require('js-yaml');
 const inquirer = require('inquirer');
 const fs = require('fs');
