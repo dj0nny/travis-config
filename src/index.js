@@ -6,7 +6,8 @@ const path = require('path');
 const travisPath = path.join(process.cwd(), '.travis.yml');
 const existingconfig = fs.existsSync(travisPath);
 
-const travisConfig = require('./config/travisConfig');
+const nodejsBuild = require('./modules/nodejsBuild');
+const rubyBuild = require('./modules/rubyBuild');
 
 function buildConfig() {
   inquirer
@@ -22,15 +23,19 @@ function buildConfig() {
       },
     ])
     .then((answers) => {
-      travisConfig.language = answers.lang;
-      const dump = yaml.dump(travisConfig, {
-        flowLevel: 10,
-        styles: {
-          '!!int': 'hexadecimal',
-          '!!null': 'camelcase',
-        },
-      });
-      fs.writeFileSync(travisPath, dump, 'utf-8');
+      if (answers.lang === 'node.js') {
+        nodejsBuild();
+      } else {
+        rubyBuild();
+      }
+      // const dump = yaml.dump(travisConfig, {
+      //   flowLevel: 10,
+      //   styles: {
+      //     '!!int': 'hexadecimal',
+      //     '!!null': 'camelcase',
+      //   },
+      // });
+      // fs.writeFileSync(travisPath, dump, 'utf-8');
     });
 }
 
