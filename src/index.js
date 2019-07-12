@@ -4,6 +4,7 @@ const yaml = require('js-yaml');
 const inquirer = require('inquirer');
 const fs = require('fs');
 const path = require('path');
+const getCurrentBranchName = require('node-git-current-branch');
 
 const travisPath = path.join(process.cwd(), '.travis.yml');
 const existingconfig = fs.existsSync(travisPath);
@@ -45,23 +46,28 @@ async function buildConfig() {
   fs.writeFileSync(travisPath, dump, 'utf-8');
 }
 
-if (existingconfig) {
-  inquirer
-    .prompt([
-      {
-        type: 'confirm',
-        name: 'overwrite',
-        message: '.travis.yml alredy exists! Do you want of overwrite it?',
-        default: false,
-      },
-    ])
-    .then((answers) => {
-      if (answers.overwrite) {
-        buildConfig();
-      } else {
-        process.exit(0);
-      }
-    });
+if (getCurrentBranchName()) {
+  if (existingconfig) {
+    inquirer
+      .prompt([
+        {
+          type: 'confirm',
+          name: 'overwrite',
+          message: '.travis.yml alredy exists! Do you want of overwrite it?',
+          default: false,
+        },
+      ])
+      .then((answers) => {
+        if (answers.overwrite) {
+          buildConfig();
+        } else {
+          process.exit(0);
+        }
+      });
+  } else {
+    buildConfig();
+  }
 } else {
-  buildConfig();
+  console.log('There is not git repository in this folder');
+  process.exit(1);
 }
