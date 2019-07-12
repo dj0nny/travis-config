@@ -1,6 +1,6 @@
 {
   "name": "travis-config",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "description": "Generate your .travis.yml via CLI",
   "main": "src/index.js",
   "bin": "src/index.js",
@@ -24,6 +24,7 @@
   "keywords": [
     "cli",
     "travis",
+    "travis-cli",
     "travis.yml",
     "node.js",
     "command line"
