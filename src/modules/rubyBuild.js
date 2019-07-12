@@ -16,15 +16,8 @@ async function rubyBuild() {
           'rbx-19mode',
         ],
       },
-      {
-        type: 'confirm',
-        name: 'sudo',
-        message: 'Run in sudo mode?',
-        default: false,
-      },
     ]);
   rubyConfig.rvm = answers.version;
-  rubyConfig.sudo = answers.sudo;
   return {
     ...rubyConfig,
   };

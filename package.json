@@ -13,12 +13,19 @@
   "license": "MIT",
   "dependencies": {
     "inquirer": "^6.4.1",
-    "js-yaml": "^3.13.1"
+    "js-yaml": "^3.13.1",
+    "node-git-current-branch": "^2.0.1"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.0"
   },
-  "keywords": ["cli", "travis", "travis.yml", "node.js", "command line"]
+  "keywords": [
+    "cli",
+    "travis",
+    "travis.yml",
+    "node.js",
+    "command line"
+  ]
 }

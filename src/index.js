@@ -11,7 +11,10 @@ const existingconfig = fs.existsSync(travisPath);
 const nodejsBuild = require('./modules/nodejsBuild');
 const rubyBuild = require('./modules/rubyBuild');
 
+const generateTravis = require('./modules/generateTravis');
+
 let travisConfig;
+let travisConfigFinal;
 
 async function buildConfig() {
   const answers = await inquirer
@@ -28,25 +31,18 @@ async function buildConfig() {
     ]);
   if (answers.lang === 'node.js') {
     travisConfig = await nodejsBuild();
-    const dump = yaml.dump(travisConfig, {
-      flowLevel: 10,
-      styles: {
-        '!!int': 'hexadecimal',
-        '!!null': 'camelcase',
-      },
-    });
-    fs.writeFileSync(travisPath, dump, 'utf-8');
   } else {
     travisConfig = await rubyBuild();
-    const dump = yaml.dump(travisConfig, {
-      flowLevel: 10,
-      styles: {
-        '!!int': 'hexadecimal',
-        '!!null': 'camelcase',
-      },
-    });
-    fs.writeFileSync(travisPath, dump, 'utf-8');
   }
+  travisConfigFinal = await generateTravis(travisConfig);
+  const dump = yaml.dump(travisConfigFinal, {
+    flowLevel: 10,
+    styles: {
+      '!!int': 'hexadecimal',
+      '!!null': 'camelcase',
+    },
+  });
+  fs.writeFileSync(travisPath, dump, 'utf-8');
 }
 
 if (existingconfig) {
