@@ -68,6 +68,6 @@ if (isGitSync(process.cwd())) {
     buildConfig();
   }
 } else {
-  console.log('There is not git repository in this folder');
+  console.log('There is no git repository in this folder');
   process.exit(1);
 }
