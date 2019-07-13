@@ -13,6 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "inquirer": "^6.4.1",
+    "is-git-sync": "^1.0.0",
     "js-yaml": "^3.13.1",
     "node-git-current-branch": "^2.0.1"
   },

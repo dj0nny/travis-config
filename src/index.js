@@ -4,7 +4,7 @@ const yaml = require('js-yaml');
 const inquirer = require('inquirer');
 const fs = require('fs');
 const path = require('path');
-const isGitSync = require('./modules/isGitSync');
+const isGitSync = require('is-git-sync');
 
 const travisPath = path.join(process.cwd(), '.travis.yml');
 const existingconfig = fs.existsSync(travisPath);
