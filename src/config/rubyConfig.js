@@ -6,6 +6,8 @@ const rubyConfig = {
     except: [],
     only: [],
   },
+  install: [],
+  script: [],
 };
 
 module.exports = rubyConfig;

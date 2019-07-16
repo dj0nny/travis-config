@@ -6,6 +6,8 @@ const nodejsConfig = {
     except: [],
     only: [],
   },
+  install: [],
+  script: []
 };
 
 module.exports = nodejsConfig;
