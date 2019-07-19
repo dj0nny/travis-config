@@ -24,14 +24,14 @@ async function generateTravis(config) {
       },
       {
         type: 'text',
-        name: 'excludedBranches',
-        message: 'Which branches do you like to exclude? (Specify multiple separated by commas)',
-        when: ok => ok.branchesConfirm,
+        name: 'builtScript',
+        message: 'Which scripts execute for the installing? (Specify multiple separated by commas)',
       },
     ]);
   config.sudo = answers.sudo;
   config.branches.only = answers.branches ? answers.branches.split(',').map(a => a.trim()) : '';
   config.branches.except = answers.excludedBranches ? answers.excludedBranches.split(',').map(a => a.trim()) : '';
+  config.install = answers.builtScript ? answers.builtScript.split(',').map(a => a.trim()) : '';
   return {
     ...config,
   };

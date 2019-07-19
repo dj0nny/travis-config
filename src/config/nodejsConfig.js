@@ -7,7 +7,7 @@ const nodejsConfig = {
     only: [],
   },
   install: [],
-  script: []
+  script: [],
 };
 
 module.exports = nodejsConfig;
